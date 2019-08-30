@@ -1,0 +1,39 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": [
+        "location",
+        "email",
+        "price_range",
+        "cuisine"
+      ]
+    },
+    "action_check_location": {
+      "slots": [
+        "location_match"
+      ]
+    },
+    "action_restaurant_search": {
+      "slots": [
+        "location"
+      ]
+    },
+    "action_restart_conv": {
+      "slots": []
+    }
+  },
+  "python": "3.7.3",
+  "max_histories": [
+    4,
+    5
+  ],
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa_core.policies.memoization.MemoizationPolicy",
+    "rasa_core.policies.keras_policy.KerasPolicy"
+  ],
+  "trained_at": "20190823-132543",
+  "rasa_core": "0.14.0",
+  "tensorflow": "1.13.2",
+  "sklearn": "0.20.4"
+}

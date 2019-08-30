@@ -1,0 +1,125 @@
+%YAML 1.1
+---
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_confirm_email_send
+- utter_ask_email_address
+- utter_email_sent
+- utter_email_not_sent
+- utter_ask_price_range
+- utter_searching
+- utter_location_not_found
+- action_restaurant_search
+- action_check_location
+- action_restart_conv
+- action_send_email
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- email
+- price_range
+forms: []
+intents:
+- greet:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- restaurant_search:
+    use_entities: true
+- send_email:
+    use_entities: true
+slots:
+  cuisine:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email_body:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location_match:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - zero
+    - one
+  price_range:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: What kind of cuisine would you like?
+  utter_ask_email_address:
+  - text: "Please specify the email id ? \n"
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_price_range:
+  - buttons:
+    - payload: pocket friendly
+      title: Pocket-Friendly (< Rs.300)
+    - payload: moderate
+      title: Moderate (Rs.300 - 700)
+    - payload: luxury
+      title: luxury (> Rs.700)
+    text: What price range are you looking at?
+  utter_confirm_email_send:
+  - text: "Shall we mail you details of top restaurants ? \n"
+  utter_default:
+  - text: default message
+  utter_email_not_sent:
+  - text: Okay. Happy eating !
+  utter_email_sent:
+  - text: Sent mail. Happy eating !
+  utter_goodbye:
+  - text: Goodbye :(
+  - text: Bye-bye
+  - text: Have a nice day
+  - text: Have a beautiful day
+  utter_greet:
+  - text: hey there! How may I help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  - text: 'Hello, How can I help?  '
+  utter_location_not_found:
+  - text: "Sorry, didn’t find any location. Can you please specify some other location\
+      \ or check if your location is correct ? \n"
+  utter_searching:
+  - text: "Sit back and Relax!, while we search for your preferred restaurants \n"
